@@ -33,6 +33,12 @@ export interface DrawnCard {
 }
 
 const majorArcana = deckData.majorArcana as MajorArcanaCard[]
+
+/** The full major arcana, in canonical order, for the deck gallery. */
+export const fullDeck: MajorArcanaCard[] = [...majorArcana].sort(
+  (a, b) => a.number - b.number,
+)
+
 const spreads = deckData.spreads as Array<{
   id: string
   name: string

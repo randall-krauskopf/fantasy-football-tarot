@@ -7,18 +7,23 @@ import {
   weekendSpread,
   type DrawnCard,
 } from './deck'
+import {artFor} from './cardArt'
+import DeckGallery from './DeckGallery'
 import './App.css'
 
 const REVEAL_DELAY_MS = 900
 const SHUFFLE_DURATION_MS = 1600
 
 type Phase = 'idle' | 'shuffling' | 'revealing'
+type View = 'reading' | 'gallery'
 
 export default function App() {
+  const [view, setView] = useState<View>('reading')
   const [phase, setPhase] = useState<Phase>('idle')
   const [reading, setReading] = useState<DrawnCard[]>([])
   const [revealedCount, setRevealedCount] = useState(0)
   const [closer, setCloser] = useState('')
+  const [brokenArt, setBrokenArt] = useState<Record<string, true>>({})
   const timeouts = useRef<number[]>([])
 
   const clearTimers = useCallback(() => {
@@ -77,6 +82,33 @@ export default function App() {
           </p>
         </header>
 
+        <nav className="view-switch" aria-label="View">
+          <button
+            type="button"
+            className={`view-switch__tab${
+              view === 'reading' ? ' view-switch__tab--active' : ''
+            }`}
+            aria-pressed={view === 'reading'}
+            onClick={() => setView('reading')}
+          >
+            Reading
+          </button>
+          <button
+            type="button"
+            className={`view-switch__tab${
+              view === 'gallery' ? ' view-switch__tab--active' : ''
+            }`}
+            aria-pressed={view === 'gallery'}
+            onClick={() => setView('gallery')}
+          >
+            Deck Gallery
+          </button>
+        </nav>
+
+        {view === 'gallery' ? <DeckGallery /> : null}
+
+        {view === 'reading' ? (
+          <>
         <button
           type="button"
           className="cast-button"
@@ -114,6 +146,8 @@ export default function App() {
           <section className="spread" aria-label={weekendSpread.name}>
             {reading.map((drawn, index) => {
               const revealed = index < revealedCount
+              const art = artFor(drawn.card.id)
+              const showArt = art !== undefined && !brokenArt[drawn.card.id]
               return (
                 <article
                   key={drawn.card.id}
@@ -131,12 +165,28 @@ export default function App() {
                         drawn.orientation === 'reversed'
                           ? ' card-face--reversed'
                           : ''
-                      }`}
+                      }${showArt ? ' card-face--art' : ''}`}
                       aria-hidden={!revealed}
                     >
                       <span className="card-face__number">
                         {drawn.card.number}
                       </span>
+                      {showArt ? (
+                        <figure className="card-face__art">
+                          <img
+                            src={art.src}
+                            alt={art.alt}
+                            loading="lazy"
+                            onError={() =>
+                              setBrokenArt(broken => ({
+                                ...broken,
+                                [drawn.card.id]: true,
+                              }))
+                            }
+                          />
+                          <figcaption>{art.caption}</figcaption>
+                        </figure>
+                      ) : null}
                       <h2 className="card-face__name">{drawn.card.name}</h2>
                       {drawn.orientation === 'reversed' ? (
                         <span className="card-face__badge">Reversed</span>
@@ -160,6 +210,8 @@ export default function App() {
         ) : null}
 
         {closer ? <p className="closer">{closer}</p> : null}
+          </>
+        ) : null}
       </main>
     </div>
   )
