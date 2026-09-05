@@ -1,0 +1,592 @@
+{
+  "schemaVersion": "1.0",
+  "name": "Fantasy Football Tarot",
+  "description": "A humorous NFL-themed tarot deck for pre-game fantasy football readings.",
+  "usageNotes": [
+    "Treat the reading as playful entertainment, not a serious prediction.",
+    "Use a manager's actual roster, opponent, matchup, injury news, and projections as variables.",
+    "The examples are archetypes; replace player mappings as rosters and teams change."
+  ],
+  "spreads": [
+    {
+      "id": "weekend-reading",
+      "name": "The Weekend Reading",
+      "cards": 3,
+      "positions": [
+        {
+          "id": "last-week",
+          "name": "Last Week",
+          "question": "What energy follows this manager into the weekend?"
+        },
+        {
+          "id": "matchup",
+          "name": "This Matchup",
+          "question": "What force is shaping the game ahead?"
+        },
+        {
+          "id": "outlook",
+          "name": "The Outlook",
+          "question": "What fate awaits the lineup?"
+        }
+      ]
+    },
+    {
+      "id": "lineup-decision",
+      "name": "The Flex Decision",
+      "cards": 3,
+      "positions": [
+        {
+          "id": "temptation",
+          "name": "The Temptation",
+          "question": "Which player is luring the manager into a risky start?"
+        },
+        {
+          "id": "hidden-factor",
+          "name": "The Hidden Factor",
+          "question": "What information is missing from the matchup?"
+        },
+        {
+          "id": "verdict",
+          "name": "The Verdict",
+          "question": "What happens if the manager trusts the cards?"
+        }
+      ]
+    }
+  ],
+  "readingRules": {
+    "drawCount": 3,
+    "majorArcanaWeight": 0.7,
+    "minorArcanaWeight": 0.3,
+    "reversedProbability": 0.25,
+    "reversalGuidance": "A reversed card does not always mean the opposite. Treat it as blocked, delayed, excessive, hidden, or misdirected energy.",
+    "verdicts": [
+      {
+        "id": "win",
+        "label": "The stars favor victory",
+        "scoreRange": [0.67, 1]
+      },
+      {
+        "id": "toss-up",
+        "label": "The matchup hangs in the balance",
+        "scoreRange": [0.4, 0.66]
+      },
+      {
+        "id": "loss",
+        "label": "The waiver wire must be consulted",
+        "scoreRange": [0, 0.39]
+      }
+    ]
+  },
+  "majorArcana": [
+    {
+      "number": 0,
+      "id": "the-fool",
+      "name": "The Fool",
+      "upright": {
+        "meaning": "A bold beginning, optimism, and reckless confidence",
+        "footballArchetype": "A rookie, a YOLO lineup choice, or a manager who starts the hype train immediately",
+        "verbs": ["leaps", "gambles", "wanders", "trusts the vibes"]
+      },
+      "reversed": {
+        "meaning": "Naivety, poor preparation, and a spectacularly avoidable mistake",
+        "footballArchetype": "Starting a player because of one highlight clip"
+      },
+      "playerExamples": ["rookie quarterback", "unproven waiver pickup", "boom-or-bust flex"],
+      "fortuneHooks": [
+        "You have mistaken confidence for evidence.",
+        "The Fool asks only one question: is he actually projected to score points?"
+      ]
+    },
+    {
+      "number": 1,
+      "id": "the-magician",
+      "name": "The Magician",
+      "upright": {
+        "meaning": "Skill, resourcefulness, and turning opportunity into results",
+        "footballArchetype": "The waiver-wire wizard or manager who always finds the breakout player",
+        "verbs": ["manifests", "conjures", "engineers", "transmutes"]
+      },
+      "reversed": {
+        "meaning": "Manipulation, empty hype, or mistaking cleverness for production",
+        "footballArchetype": "The manager who explains a terrible trade with a twelve-slide presentation"
+      },
+      "playerExamples": ["elite playmaker", "high-upside waiver pickup", "creative offensive coordinator"],
+      "fortuneHooks": [
+        "The Magician has all four tools: targets, touches, matchup, and an unreasonable amount of confidence.",
+        "A miracle is being attempted in the flex spot."
+      ]
+    },
+    {
+      "number": 2,
+      "id": "the-high-priestess",
+      "name": "The High Priestess",
+      "upright": {
+        "meaning": "Intuition, hidden information, and secrets not yet revealed",
+        "footballArchetype": "The questionable tag, late inactive, or mysterious snap-count situation",
+        "verbs": ["whispers", "conceals", "waits", "reveals"]
+      },
+      "reversed": {
+        "meaning": "Ignored warning signs, leaked secrets, and false confidence",
+        "footballArchetype": "Seeing 'limited practice' and deciding it means 'fully healthy'"
+      },
+      "playerExamples": ["questionable starter", "backup waiting for an injury", "mystery committee back"],
+      "fortuneHooks": [
+        "The injury report speaks in riddles, and the manager hears only what they want to hear.",
+        "At 11:58 a.m., the truth will be declared inactive."
+      ]
+    },
+    {
+      "number": 3,
+      "id": "the-empress",
+      "name": "The Empress",
+      "upright": {
+        "meaning": "Abundance, growth, comfort, and generous production",
+        "footballArchetype": "A bell-cow running back or offense that feeds its favorite weapon",
+        "verbs": ["nourishes", "feeds", "multiplies", "harvests"]
+      },
+      "reversed": {
+        "meaning": "Overindulgence, stagnation, or too much reliance on one source",
+        "footballArchetype": "A running back with 25 touches and 2.1 yards per carry"
+      },
+      "playerExamples": ["workhorse RB", "target-hog WR", "goal-line specialist"],
+      "fortuneHooks": [
+        "The Empress promises volume, though not necessarily efficiency.",
+        "Many touches shall be bestowed. Whether they become points is between the line and the gods."
+      ]
+    },
+    {
+      "number": 4,
+      "id": "the-emperor",
+      "name": "The Emperor",
+      "upright": {
+        "meaning": "Authority, structure, control, and stubborn leadership",
+        "footballArchetype": "A coach who refuses to abandon the game plan or a manager who never changes their draft strategy",
+        "verbs": ["commands", "rules", "dictates", "establishes"]
+      },
+      "reversed": {
+        "meaning": "Rigidity, tyranny, and control collapsing into chaos",
+        "footballArchetype": "Refusing to bench a struggling star because of draft capital"
+      },
+      "playerExamples": ["veteran QB", "old-school head coach", "overvalued first-round pick"],
+      "fortuneHooks": [
+        "The Emperor has made a decision. The decision is bad, but it is final.",
+        "No matchup data can move the hand that spent the second-round pick."
+      ]
+    },
+    {
+      "number": 5,
+      "id": "the-hierophant",
+      "name": "The Hierophant",
+      "upright": {
+        "meaning": "Tradition, rules, institutions, and conventional wisdom",
+        "footballArchetype": "The commissioner, the rulebook, or the manager who always follows consensus rankings",
+        "verbs": ["blesses", "anoints", "codifies", "consults"]
+      },
+      "reversed": {
+        "meaning": "Rebellion, breaking convention, and challenging accepted wisdom",
+        "footballArchetype": "Starting the backup against expert consensus"
+      },
+      "playerExamples": ["league commissioner", "consensus RB1", "veteran fantasy analyst"],
+      "fortuneHooks": [
+        "The sacred rankings have been consulted. The manager has ignored them.",
+        "A waiver claim made outside the approved traditions approaches."
+      ]
+    },
+    {
+      "number": 6,
+      "id": "the-lovers",
+      "name": "The Lovers",
+      "upright": {
+        "meaning": "Connection, harmony, alignment, and meaningful partnership",
+        "footballArchetype": "A quarterback-wide receiver stack or a red-zone duo with perfect chemistry",
+        "verbs": ["connects", "aligns", "stacks", "conspires"]
+      },
+      "reversed": {
+        "meaning": "Disconnection, bad chemistry, and a relationship under strain",
+        "footballArchetype": "A target monster whose quarterback suddenly prefers everyone else"
+      },
+      "playerExamples": ["QB-WR stack", "QB-TE connection", "goal-line pairing"],
+      "fortuneHooks": [
+        "Two players become one fantasy transaction.",
+        "The stack is beautiful, unless the offense forgets how passing works."
+      ]
+    },
+    {
+      "number": 7,
+      "id": "the-chariot",
+      "name": "The Chariot",
+      "upright": {
+        "meaning": "Momentum, determination, victory, and controlled force",
+        "footballArchetype": "A breakaway runner or quarterback who takes over the game",
+        "verbs": ["charges", "surges", "runs over", "breaks free"]
+      },
+      "reversed": {
+        "meaning": "Loss of control, stalled momentum, and a crash",
+        "footballArchetype": "A boom-or-bust player trapped behind a bad offensive line"
+      },
+      "playerExamples": ["mobile QB", "explosive RB", "yards-after-catch WR"],
+      "fortuneHooks": [
+        "The Chariot does not ask whether the lane is open. It creates a highlight and a questionable decision.",
+        "Momentum is yours until the fumble is reviewed."
+      ]
+    },
+    {
+      "number": 8,
+      "id": "strength",
+      "name": "Strength",
+      "upright": {
+        "meaning": "Courage, power, patience, and controlled aggression",
+        "footballArchetype": "A power back, dominant offensive line, or intimidating defender",
+        "verbs": ["endures", "overpowers", "mauls", "holds firm"]
+      },
+      "reversed": {
+        "meaning": "Weakness exposed, frustration, or power used without control",
+        "footballArchetype": "A feared defense that gives up a long touchdown immediately"
+      },
+      "playerExamples": ["power RB", "elite pass rusher", "dominant defensive front"],
+      "fortuneHooks": [
+        "The line bends. The line breaks. The projection remains strangely optimistic.",
+        "Strength arrives wearing shoulder pads and demanding a goal-line carry."
+      ]
+    },
+    {
+      "number": 9,
+      "id": "the-hermit",
+      "name": "The Hermit",
+      "upright": {
+        "meaning": "Solitude, reflection, patience, and stepping away from the noise",
+        "footballArchetype": "An injured player on IR or a manager hiding from the group chat after a bad trade",
+        "verbs": ["withdraws", "recovers", "contemplates", "vanishes"]
+      },
+      "reversed": {
+        "meaning": "Isolation, avoidance, and refusing useful advice",
+        "footballArchetype": "Ignoring every trade offer while the roster quietly decays"
+      },
+      "playerExamples": ["IR stash", "bye-week player", "silent trade partner"],
+      "fortuneHooks": [
+        "The Hermit has left the lineup and will return when the fantasy season is over.",
+        "No messages can reach the manager in the recovery cave."
+      ]
+    },
+    {
+      "number": 10,
+      "id": "wheel-of-fortune",
+      "name": "Wheel of Fortune",
+      "upright": {
+        "meaning": "Luck, cycles, timing, and forces outside your control",
+        "footballArchetype": "A matchup decided by a Monday night flex or an unpredictable touchdown",
+        "verbs": ["turns", "spins", "surprises", "changes fate"]
+      },
+      "reversed": {
+        "meaning": "Bad timing, a cold streak, and luck that refuses to cooperate",
+        "footballArchetype": "Leading all day until a backup tight end catches a late touchdown"
+      },
+      "playerExamples": ["Monday night flex", "random touchdown scorer", "weather-dependent kicker"],
+      "fortuneHooks": [
+        "The Wheel turns, and it has selected your opponent's fourth-string tight end.",
+        "Your process was sound. The universe remains unserious."
+      ]
+    },
+    {
+      "number": 11,
+      "id": "justice",
+      "name": "Justice",
+      "upright": {
+        "meaning": "Balance, accountability, truth, and consequences",
+        "footballArchetype": "A close scoring decision, a referee call, or the fantasy gods correcting an overconfident manager",
+        "verbs": ["weighs", "judges", "balances", "rules"]
+      },
+      "reversed": {
+        "meaning": "Unfairness, bias, bad calls, and consequences that feel personal",
+        "footballArchetype": "Losing by 0.04 points after a stat correction"
+      },
+      "playerExamples": ["referee crew", "stat correction", "defensive touchdown"],
+      "fortuneHooks": [
+        "The scales are balanced, but one side contains a stat correction.",
+        "Justice is blind. It has also apparently never watched this league."
+      ]
+    },
+    {
+      "number": 12,
+      "id": "the-hanged-man",
+      "name": "The Hanged Man",
+      "upright": {
+        "meaning": "Pause, surrender, waiting, and seeing a situation differently",
+        "footballArchetype": "A bye-week player, committee back, or lineup decision delayed until Sunday morning",
+        "verbs": ["waits", "suspends", "reconsiders", "hangs in limbo"]
+      },
+      "reversed": {
+        "meaning": "Stalling, wasted time, and refusing to accept reality",
+        "footballArchetype": "Holding an injured player in the starting lineup until kickoff"
+      },
+      "playerExamples": ["bye-week starter", "committee RB", "late injury designation"],
+      "fortuneHooks": [
+        "The Hanged Man offers no points this week, but excellent perspective.",
+        "Your lineup is not undecided. It is suspended by hope."
+      ]
+    },
+    {
+      "number": 13,
+      "id": "death",
+      "name": "Death",
+      "upright": {
+        "meaning": "Transformation, endings, release, and a new phase",
+        "footballArchetype": "A dominant defender, the end of an aging player's era, or a matchup that changes a season",
+        "verbs": ["ends", "transforms", "buries", "renews"]
+      },
+      "reversed": {
+        "meaning": "Resistance to change, a delayed ending, or clinging to the past",
+        "footballArchetype": "Keeping an aging star because of what they did three seasons ago"
+      },
+      "playerExamples": ["elite pass rusher", "ball-hawking safety", "aging former star"],
+      "fortuneHooks": [
+        "Death does not mean literal death. It means your opponent's quarterback will remember this matchup.",
+        "An era ends at the line of scrimmage, and your bench player inherits the kingdom."
+      ]
+    },
+    {
+      "number": 14,
+      "id": "temperance",
+      "name": "Temperance",
+      "upright": {
+        "meaning": "Balance, moderation, patience, and combining forces",
+        "footballArchetype": "A balanced offense, reliable flex, or manager resisting a panicked trade",
+        "verbs": ["blends", "moderates", "balances", "stabilizes"]
+      },
+      "reversed": {
+        "meaning": "Imbalance, excess, and overcorrection",
+        "footballArchetype": "Starting six players from one offense because the matchup looks good"
+      },
+      "playerExamples": ["safe flex", "game-manager QB", "balanced offense"],
+      "fortuneHooks": [
+        "Temperance advises a reasonable lineup, which is why the manager will not follow it.",
+        "The safest choice has arrived, wearing the least exciting jersey imaginable."
+      ]
+    },
+    {
+      "number": 15,
+      "id": "the-devil",
+      "name": "The Devil",
+      "upright": {
+        "meaning": "Temptation, attachment, excess, and seductive bargains",
+        "footballArchetype": "A risky trade, a revenge game narrative, or a player with irresistible upside",
+        "verbs": ["tempts", "binds", "seduces", "whispers"]
+      },
+      "reversed": {
+        "meaning": "Breaking free, recognizing the trap, and escaping a bad deal",
+        "footballArchetype": "Selling high before the regression arrives"
+      },
+      "playerExamples": ["hype-driven waiver pickup", "revenge-game candidate", "sell-high asset"],
+      "fortuneHooks": [
+        "The Devil offers you a trade. It includes upside, vibes, and no running-back depth.",
+        "You are not starting him because of the matchup. You are starting him because the narrative has you chained."
+      ]
+    },
+    {
+      "number": 16,
+      "id": "the-tower",
+      "name": "The Tower",
+      "upright": {
+        "meaning": "Sudden upheaval, collapse, shock, and truth arriving violently",
+        "footballArchetype": "A devastating injury, defensive collapse, missed field goal, or lineup disaster",
+        "verbs": ["crumbles", "strikes", "collapses", "detonates"]
+      },
+      "reversed": {
+        "meaning": "Avoided disaster, delayed collapse, or damage already done",
+        "footballArchetype": "Surviving a scare while your bench absorbs the real catastrophe"
+      },
+      "playerExamples": ["turnover-prone QB", "injury replacement", "missed-kick specialist"],
+      "fortuneHooks": [
+        "The Tower arrives before halftime and asks why you trusted that offensive line.",
+        "Disaster was avoided, technically. Your projected score is still embarrassing."
+      ]
+    },
+    {
+      "number": 17,
+      "id": "the-star",
+      "name": "The Star",
+      "upright": {
+        "meaning": "Hope, healing, inspiration, and renewed confidence",
+        "footballArchetype": "A returning player, breakout candidate, or one bright spot on a bad roster",
+        "verbs": ["shines", "heals", "guides", "returns"]
+      },
+      "reversed": {
+        "meaning": "Disappointment, fading hope, and a dream losing its shine",
+        "footballArchetype": "The breakout candidate who sees three targets"
+      },
+      "playerExamples": ["returning star", "breakout sophomore", "elite WR1"],
+      "fortuneHooks": [
+        "The Star promises a comeback, though perhaps only in the post-game interview.",
+        "Hope enters the lineup and immediately becomes questionable."
+      ]
+    },
+    {
+      "number": 18,
+      "id": "the-moon",
+      "name": "The Moon",
+      "upright": {
+        "meaning": "Uncertainty, illusion, anxiety, and hidden information",
+        "footballArchetype": "An overhyped sleeper, misleading matchup, or unclear backfield",
+        "verbs": ["obscures", "haunts", "misdirects", "glimmers"]
+      },
+      "reversed": {
+        "meaning": "Confusion clearing, a secret exposed, or the hype finally fading",
+        "footballArchetype": "Realizing the waiver pickup was never going to play"
+      },
+      "playerExamples": ["overhyped sleeper", "committee backfield", "weather-risk player"],
+      "fortuneHooks": [
+        "The Moon makes every projection look plausible and none of them look trustworthy.",
+        "Beware the player whose best argument is that the matchup is interesting."
+      ]
+    },
+    {
+      "number": 19,
+      "id": "the-sun",
+      "name": "The Sun",
+      "upright": {
+        "meaning": "Joy, clarity, success, warmth, and unmistakable performance",
+        "footballArchetype": "A star player delivering exactly what the manager needed",
+        "verbs": ["shines", "illuminates", "celebrates", "scores"]
+      },
+      "reversed": {
+        "meaning": "A temporary setback, muted success, or joy arriving late",
+        "footballArchetype": "A star who saves the week with a late touchdown after a quiet afternoon"
+      },
+      "playerExamples": ["Amon-Ra St. Brown", "elite WR1", "league-winning performance"],
+      "fortuneHooks": [
+        "The Sun rises over your roster, and at least one player remembers the end zone exists.",
+        "Clarity arrives: start the star, stop overthinking, accept the inevitable target share."
+      ]
+    },
+    {
+      "number": 20,
+      "id": "judgement",
+      "name": "Judgement",
+      "upright": {
+        "meaning": "Reckoning, evaluation, revelation, and learning from the past",
+        "footballArchetype": "Trade deadline decisions, lineup accountability, or the consequences of draft day",
+        "verbs": ["awakens", "reckons", "reviews", "pronounces"]
+      },
+      "reversed": {
+        "meaning": "Denial, refusing to learn, and repeating the same mistake",
+        "footballArchetype": "Starting the same bust for the fourth straight week"
+      },
+      "playerExamples": ["trade-deadline asset", "draft bust", "buy-low candidate"],
+      "fortuneHooks": [
+        "The box score remembers everything.",
+        "Judgement asks why you benched the player who outscored your entire starting lineup."
+      ]
+    },
+    {
+      "number": 21,
+      "id": "the-world",
+      "name": "The World",
+      "upright": {
+        "meaning": "Completion, mastery, celebration, and a full cycle fulfilled",
+        "footballArchetype": "A championship roster, perfect lineup, or manager finally escaping the consolation bracket",
+        "verbs": ["completes", "crowns", "returns", "conquers"]
+      },
+      "reversed": {
+        "meaning": "Incompleteness, unfinished business, and falling just short",
+        "footballArchetype": "Losing the championship by one catch on Sunday night"
+      },
+      "playerExamples": ["championship-caliber roster", "league winner", "final-week hero"],
+      "fortuneHooks": [
+        "The World is within reach, but your opponent still has one player on Monday night.",
+        "The cycle is complete: draft, panic, waiver claim, regret, and possibly glory."
+      ]
+    }
+  ],
+  "minorArcana": {
+    "suits": [
+      {
+        "id": "wands",
+        "name": "Wands",
+        "element": "fire",
+        "footballTheme": "Action, offense, speed, aggression, and explosive plays",
+        "goodFor": ["running backs", "wide receivers", "gunslinger quarterbacks", "big plays"]
+      },
+      {
+        "id": "cups",
+        "name": "Cups",
+        "element": "water",
+        "footballTheme": "Emotion, chemistry, rivalries, confidence, and locker-room energy",
+        "goodFor": ["QB-WR stacks", "revenge games", "team morale", "narratives"]
+      },
+      {
+        "id": "swords",
+        "name": "Swords",
+        "element": "air",
+        "footballTheme": "Conflict, strategy, pressure, injuries, and difficult decisions",
+        "goodFor": ["defenses", "lineup dilemmas", "trash talk", "close matchups"]
+      },
+      {
+        "id": "pentacles",
+        "name": "Pentacles",
+        "element": "earth",
+        "footballTheme": "Production, money, consistency, stats, and practical value",
+        "goodFor": ["waiver budget", "trades", "kickers", "high-floor players"]
+      }
+    ],
+    "ranks": {
+      "ace": "A new opportunity or spark",
+      "two": "A choice, pairing, or balance",
+      "three": "Growth, teamwork, or early results",
+      "four": "Stability, routine, or holding firm",
+      "five": "Conflict, scarcity, or a painful loss",
+      "six": "Recognition, recovery, or momentum",
+      "seven": "A test, challenge, or defense of a decision",
+      "eight": "Work, repetition, or rapid movement",
+      "nine": "Near-success, confidence, or fatigue",
+      "ten": "Maximum pressure, completion, or burnout",
+      "page": "A beginner, message, or intriguing prospect",
+      "knight": "A player or manager charging into action",
+      "queen": "Mastery, composure, and dependable influence",
+      "king": "Authority, control, and elite command"
+    }
+  },
+  "fortuneTemplates": [
+    {
+      "id": "three-card-reading",
+      "text": "{{manager}} enters the weekend beneath {{card1.name}} {{card1.orientation}}. {{card1.hook}} In the matchup, {{card2.name}} {{card2.orientation}} brings {{card2.archetype}} to {{opponent}}. But {{card3.name}} {{card3.orientation}} waits in the outlook: {{card3.hook}}. {{verdict}}"
+    },
+    {
+      "id": "player-spotlight",
+      "text": "{{player}} appears under {{card.name}} {{card.orientation}}. The cards see {{card.archetype}}: {{playerStat}}. Start with courage, bench with wisdom, and blame the algorithm either way."
+    },
+    {
+      "id": "lineup-warning",
+      "text": "The cards warn {{manager}} not to confuse {{card.meaning}} with production. {{player}} has {{playerStat}}, a {{matchupDescription}} matchup, and exactly enough uncertainty to become your entire personality until kickoff."
+    },
+    {
+      "id": "verdict",
+      "text": "{{verdict}} The projected score is merely a suggestion. The waiver wire is eternal."
+    }
+  ],
+  "fortuneFragments": {
+    "openers": [
+      "The cards have been shuffled, though your lineup has not.",
+      "The moon is high, the projections are questionable, and the group chat is watching.",
+      "Three cards are drawn. One of them is definitely judging your draft."
+    ],
+    "transitions": [
+      "The energy shifts at the goal line.",
+      "This is where the matchup becomes personal.",
+      "The stars align, briefly, before the injury report updates."
+    ],
+    "closers": [
+      "Trust the process, except for the parts you invented five minutes ago.",
+      "May your starters receive targets and your opponent's players discover defensive football.",
+      "The reading is complete. The overreaction begins Sunday at noon."
+    ]
+  },
+  "inputVariables": {
+    "manager": "Fantasy manager name",
+    "opponent": "Opponent manager name",
+    "player": "Relevant player name",
+    "playerStat": "Relevant projection, recent result, or matchup statistic",
+    "matchupDescription": "Short matchup description",
+    "verdict": "A generated win, toss-up, or loss verdict",
+    "card": "A selected card object with orientation, meaning, archetype, hooks, and phrases"
+  }
+}
