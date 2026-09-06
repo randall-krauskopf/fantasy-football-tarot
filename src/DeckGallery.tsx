@@ -41,16 +41,9 @@ function GalleryCard({card}: {card: MajorArcanaCard}) {
 }
 
 export default function DeckGallery() {
-  const illustratedCount = fullDeck.filter(
-    card => artFor(card.id) !== undefined,
-  ).length
 
   return (
     <section className="gallery" aria-label="Deck gallery">
-      <p className="gallery__summary">
-        {illustratedCount} of {fullDeck.length} cards have custom art.
-      </p>
-
       <div className="gallery__grid">
         {fullDeck.map(card => (
           <GalleryCard key={card.id} card={card} />
