@@ -32,10 +32,25 @@ export const cardArt: Record<string, CardArt> = {
     alt: 'Patrick Mahomes roaring in celebration at Arrowhead',
     caption: 'Patrick Mahomes',
   },
+  'the-high-priestess': {
+    src: cardArtUrl('the-high-priestess.webp'),
+    alt: 'Bill Belichick in a dark blue Patriots hoodie looking stern',
+    caption: 'Bill Belichick',
+  },
   'the-empress': {
     src: cardArtUrl('the-empress.webp'),
-    alt: 'Derrick Henry breaking into the open field in a Ravens uniform',
-    caption: 'Derrick Henry',
+    alt: 'The Empress',
+    caption: 'Donna Kelce',
+  },
+  'the-emperor': {
+    src: cardArtUrl('the-emperor.webp'),
+    alt: 'Jerry Jones seated in his owner\'s box, arm draped over the chair',
+    caption: 'Jerry Jones',
+  },
+  'the-hierophant': {
+    src: cardArtUrl('the-hierophant.webp'),
+    alt: 'NFL commissioner Roger Goodell in a formal portrait',
+    caption: 'Roger Goodell',
   },
   'the-lovers': {
     src: cardArtUrl('the-lovers.webp'),
@@ -47,15 +62,70 @@ export const cardArt: Record<string, CardArt> = {
     alt: 'Saquon Barkley hurdling a defender in mid-air',
     caption: 'Saquon Barkley',
   },
+  strength: {
+    src: cardArtUrl('strength.webp'),
+    alt: 'Derrick Henry breaking into the open field in a Ravens uniform',
+    caption: 'Derrick Henry',
+  },
+  'the-hermit': {
+    src: cardArtUrl('the-hermit.webp'),
+    alt: 'Marshawn Lynch running the ball for the Seahawks',
+    caption: 'Marshawn Lynch',
+  },
+  'wheel-of-fortune': {
+    src: cardArtUrl('wheel-of-fortune.webp'),
+    alt: 'Case Keenum touchdown pass to Stefon Diggs for the Minneapolis Miracle',
+    caption: 'Minneapolis Miracle',
+  },
+  justice: {
+    src: cardArtUrl('justice.webp'),
+    alt: 'NFL referee Ed Hochuli flexing his arms while making a call',
+    caption: 'Ed Hochuli',
+  },
+  'the-hanged-man': {
+    src: cardArtUrl('the-hanged-man.webp'),
+    alt: 'Aaron Rodgers wearing a Jets hat looking pensive',
+    caption: 'Aaron Rodgers',
+  },
   death: {
     src: cardArtUrl('death.webp'),
     alt: 'Ray Lewis screaming during pregame introductions, pyrotechnics behind him',
     caption: 'Ray Lewis',
   },
+  temperance: {
+    src: cardArtUrl('temperance.webp'),
+    alt: 'Temperance',
+    caption: 'Tom Brady',
+  },
+  'the-devil': {
+    src: cardArtUrl('the-devil.webp'),
+    alt: 'Antonio Brown taking off his jersey and waving to fans as he exits the field',
+    caption: 'Antonio Brown',
+  },
+  'the-tower': {
+    src: cardArtUrl('the-tower.webp'),
+    alt: 'Scoreboard showing New England 3, Atlanta 28 in the third quarter of Super Bowl LI',
+    caption: 'Falcons 28, Patriots 3',
+  },
+  'the-star': {
+    src: cardArtUrl('the-star.webp'),
+    alt: 'The Star',
+    caption: 'Josh Allen',
+  },
+  'the-moon': {
+    src: cardArtUrl('the-moon.webp'),
+    alt: 'The Moon',
+    caption: 'Ian Rapoport',
+  },
   'the-sun': {
     src: cardArtUrl('the-sun.webp'),
     alt: 'Amon-Ra St. Brown flexing in celebration under a bright sky',
     caption: 'Amon-Ra St. Brown',
+  },
+    judgement: {
+    src: cardArtUrl('judgement.webp'),
+    alt: 'Judgement',
+    caption: 'Kirk Cousins',
   },
   'the-world': {
     src: cardArtUrl('the-world.webp'),
