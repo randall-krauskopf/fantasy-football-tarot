@@ -2,14 +2,6 @@ import {useState} from 'react'
 import {fullDeck, type MajorArcanaCard} from './deck'
 import {artFor} from './cardArt'
 
-type Filter = 'all' | 'illustrated' | 'unillustrated'
-
-const FILTERS: Array<{id: Filter; label: string}> = [
-  {id: 'all', label: 'All cards'},
-  {id: 'illustrated', label: 'With art'},
-  {id: 'unillustrated', label: 'Needs art'},
-]
-
 function GalleryCard({card}: {card: MajorArcanaCard}) {
   const art = artFor(card.id)
   const [broken, setBroken] = useState(false)
@@ -49,14 +41,6 @@ function GalleryCard({card}: {card: MajorArcanaCard}) {
 }
 
 export default function DeckGallery() {
-  const [filter, setFilter] = useState<Filter>('all')
-
-  const cards = fullDeck.filter(card => {
-    if (filter === 'illustrated') return artFor(card.id) !== undefined
-    if (filter === 'unillustrated') return artFor(card.id) === undefined
-    return true
-  })
-
   const illustratedCount = fullDeck.filter(
     card => artFor(card.id) !== undefined,
   ).length
@@ -67,24 +51,8 @@ export default function DeckGallery() {
         {illustratedCount} of {fullDeck.length} cards have custom art.
       </p>
 
-      <div className="gallery__filters" role="group" aria-label="Filter cards">
-        {FILTERS.map(option => (
-          <button
-            key={option.id}
-            type="button"
-            className={`gallery__filter${
-              filter === option.id ? ' gallery__filter--active' : ''
-            }`}
-            aria-pressed={filter === option.id}
-            onClick={() => setFilter(option.id)}
-          >
-            {option.label}
-          </button>
-        ))}
-      </div>
-
       <div className="gallery__grid">
-        {cards.map(card => (
+        {fullDeck.map(card => (
           <GalleryCard key={card.id} card={card} />
         ))}
       </div>
