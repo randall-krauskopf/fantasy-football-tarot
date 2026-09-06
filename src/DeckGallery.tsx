@@ -10,7 +10,7 @@ function GalleryCard({card}: {card: MajorArcanaCard}) {
   return (
     <article className="gallery-card">
       <div className={`gallery-card__face${showArt ? ' gallery-card__face--art' : ''}`}>
-        <span className="card-face__number">{card.number}</span>
+        <span className="card-face__number">{card.number + 1}</span>
         {showArt ? (
           <figure className="card-face__art">
             <img
